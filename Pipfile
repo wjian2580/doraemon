@@ -1,0 +1,30 @@
+[[source]]
+name = "ali"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+flask = "*"
+flask-sqlalchemy = "*"
+flask-script = "*"
+flask-migrate = "*"
+mysqlclient = "*"
+wtforms = "*"
+flask-wtf = "*"
+requests = "*"
+json-tools = "*"
+flask-pika = {git = "https://github.com/wjian2580/flask-pika"}
+werkzeug = "==0.15.2"
+flask-cache = "*"
+flask-redis = "*"
+redis = "*"
+jira = "*"
+pathos = "*"
+dictdiffer = "*"
+pandas = "*"
+aiormq = "*"
+
+[requires]
+python_version = "3"

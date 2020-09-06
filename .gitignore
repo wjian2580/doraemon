@@ -1,0 +1,9 @@
+__pycache__/*
+*.pyc
+.idea
+*.csv
+.DS_Store
+*log
+migrations/versions/*
+nohup.out
+diff.log

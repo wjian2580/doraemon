@@ -1,0 +1,106 @@
+﻿{% extends "base.html" %} {% block title %} index {% endblock %} {% block content %}
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="page-header">
+                        概览
+                    </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-primary text-center no-boder bg-color-green green">
+                    <div class="panel-left pull-left green">
+                        <i class="fa fa-users fa-5x"></i>
+                    </div>
+                    <div class="panel-right">
+                        <h3>{{ counts.project_count }}</h3>
+                        <strong>Projects</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-primary text-center no-boder bg-color-brown">
+                    <div class="panel-left pull-left brown">
+                        <i class="fa fa-tasks fa-5x"></i>
+                    </div>
+                    <div class="panel-right">
+                        <h4>{{ counts.task_count }}</h4>
+                        <strong>Tasks</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-primary text-center no-boder bg-color-blue">
+                    <div class="panel-left pull-left blue">
+                        <i class="fa fa-puzzle-piece fa-5x"></i>
+                    </div>
+                    <div class="panel-right">
+                        <h3>{{ counts.api_count }}</h3>
+                        <strong>Apis</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-primary text-center no-boder bg-color-red">
+                    <div class="panel-left pull-left red">
+                        <i class="fa fa-suitcase fa-5x"></i>
+                    </div>
+                    <div class="panel-right">
+                        <h4>{{ counts.arg_count }}</h4>
+                        <strong> Cases</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="main" style="width: auto; height:400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('main'));
+
+    var option = {
+        title: {
+            text: '过去一周运行情况'
+        },
+        tooltip: {},
+        legend: {
+            data:['通过','失败','通过率']
+        },
+        color:['Lime','Tomato','LightSlateBlue'],
+        xAxis: {
+            data: {{ dates | safe }}
+        },
+        yAxis: {},
+        series: [
+        {
+            name: '通过',
+            type: 'bar',
+            data: {{ pass }}
+        },
+        {
+            name: '失败',
+            type: 'bar',
+            data: {{ fail }}
+        },
+        {
+            name: '通过率',
+            type: 'bar',
+            data: {{ percent }}
+        },
+
+        ]
+    };
+
+    myChart.setOption(option);
+</script>
+{% endblock %}

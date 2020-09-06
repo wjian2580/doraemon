@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block title %} EditApi {% endblock %} {% block content %}
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-header">
+                    编辑接口
+                </h1>
+            </div>
+        </div>
+        <!-- /. ROW  -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="margin-left: 5px">
+                        接口信息
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <br>
+                                <form role="form" method="POST">
+                                    {{form.hidden_tag()}}
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">接口名称</span>
+                                        {{form.api_name(class_="form-control")}}
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">路径</span>
+                                        {{form.uri(class_="form-control",readonly='readonly')}}
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">请求方式</span>
+                                        {{form.method(class_="form-control",readonly='readonly')}}
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">噪声</span>
+                                        {{form.noises(class_="form-control", placeholder="e.g.  trace_id,message")}}
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon">排序字段</span>
+                                        {{form.order_by(class_="form-control", placeholder="e.g. /data/classes/startTime")}}
+                                    </div>
+                                    {{form.submit(class_="btn btn-default")}}
+                                    <button type="reset" class="btn btn-default">重置</button>
+                                </form>
+                            </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+    </div>
+</div>
+{% endblock %}
